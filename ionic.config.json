@@ -1,0 +1,7 @@
+{
+  "name": "sortingGame",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
