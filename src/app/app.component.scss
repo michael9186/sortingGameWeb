@@ -117,3 +117,15 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+ion-range {
+  width: 80%;
+  padding-left: 3%;
+  padding-top: 0px;
+}
+
+ion-title {
+  margin-top: 5%;
+  margin-bottom: 5%; 
+  padding-inline: 3%;
+}

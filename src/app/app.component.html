@@ -1,27 +1,48 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu contentId="main-content" type="overlay">    
       <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi&#64;ionicframework.com</ion-note>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon aria-hidden="true" slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
+        <ion-title>Spielmodus</ion-title>
+        <ion-radio-group [value]="0" (ionChange)="handleModeChange($event)">
+          <ion-item *ngFor="let gameMode of gameModes">
+            <ion-radio [value]="gameMode.id">{{ gameMode.title }}</ion-radio>
           </ion-item>
-        </ion-list>
+        </ion-radio-group>
+
+        <ion-title>Kartenzahl</ion-title>
+        <ion-range (ionChange)="handleNumberOfCardsChange($event)"
+          [min]="numberOfCards.min"
+          [max]="numberOfCards.max"
+          [value]="numberOfCards.min"
+          [pin]="true"
+          [ticks]="true"
+          [snaps]="true"
+        >
+          <ion-label slot="start">{{ numberOfCards.min }}</ion-label>
+          <ion-label slot="end">{{ numberOfCards.max }}</ion-label>
+        </ion-range>
+
+        <ion-title>Kartentyp</ion-title>
+        <ion-radio-group [value]="0" (ionChange)="handleValueTypeChange($event)">
+          <ion-item *ngFor="let valueType of valueTypes">
+            <ion-radio [value]="valueType.id">{{ valueType.title }}</ion-radio>
+          </ion-item>
+        </ion-radio-group>
+        
+        <ion-title>Zahlenwerte</ion-title>  
+        <ion-radio-group [value]="0" (ionChange)="handleValueDistributionChange($event)">
+          <ion-item *ngFor="let valueDistribution of valueDistributions">
+            <ion-radio [value]="valueDistribution.id">{{ valueDistribution.title }}</ion-radio>
+          </ion-item>
+        </ion-radio-group>
+
+        <ion-title>Modus</ion-title>
+        <ion-radio-group [(ngModel)]="selectedWorkshopMode" (ionChange)="handleWorkshopModeChange($event)">
+          <ion-item *ngFor="let workshopMode of workshopModes">
+            <ion-radio [value]="workshopMode.id">{{ workshopMode.title }}</ion-radio>
+          </ion-item>
+        </ion-radio-group>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

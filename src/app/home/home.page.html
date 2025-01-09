@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Sortierspiel</ion-title>
+    
+    <ion-buttons class="gc" slot="end">
+      <ion-button (click)="restartGame(true)" >
+        Zurücksetzen
+        <ion-icon slot="icon-only" name="play-skip-back"></ion-icon>
+      </ion-button>
+      <ion-button (click)="restartGame(false)">
+        Neue Karten
+        <ion-icon slot="icon-only" name="reload"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div #cardContainer>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let card of cards; let i = index" class="card-col">
+          <div class="card-index">
+            <ion-icon *ngIf="insertionSortCurrentIndex == i+1 && selectedMode === 2" class="insertionsort-dot" name="ellipse"></ion-icon>
+            <p>[{{ i+1 }}]</p>
+            
+          </div>
+          <ion-card [id]="'card-' + i" (click)="flipCard(i)" [ngClass]="{'finalized': card.finalized}" >
+            <ion-button fill="clear" class="card-button" (click)="finalizeCard($event, i)" >
+              <ion-icon *ngIf="!card.finalized || selectedMode === 0" name="checkmark"></ion-icon>
+            </ion-button>
+            <ion-button *ngIf="card.selected" fill="clear" class="card-button pin-button" (click)="pinCard($event, i)">
+              <ion-icon [name]="getPinButtonIcon(i)"></ion-icon>
+            </ion-button>
+            <div *ngIf="card.selected" class="center-text">
+              <p class="card-content">{{ card.value }}</p>
+            </div>
+        </ion-card>
+          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        
+      </ion-row>
+    </ion-grid>
+  </div>  
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="footer-toolbar">
+    <ion-row class="footer-text center-text">
+      <ion-col><ion-title>Verglichen: {{ comparisons }}</ion-title></ion-col>
+      <ion-col><ion-title>Getauscht: {{ swaps }}</ion-title></ion-col>
+      <ion-col><ion-title>Fehler: {{ errors }}</ion-title></ion-col>
+      <ion-col class="center-col">
+        <ion-button [disabled]="getSelectedCardIndizes().size!=2" (click)="swapCards()">Karten tauschen</ion-button>
+      </ion-col>
+    </ion-row>
+    
+  </ion-toolbar>
+</ion-footer>

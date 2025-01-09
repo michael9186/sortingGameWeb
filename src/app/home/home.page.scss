@@ -1,0 +1,135 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.card-content {
+  font-size: 26px;
+  line-height: 32px;
+  margin: 0;
+}
+
+ion-card {
+  height: 23vh;
+  margin-bottom: 0px;
+  margin-inline: 0px;
+  margin-top: 3px;
+}
+
+.center-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.center-col {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  height: 100%;            /* Ensure the column takes full height */
+}
+
+.thin-row {
+  max-height:10vh;
+}
+
+.card-button {
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin-inline: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  min-height: 0;
+  font-size: 20px;
+}
+
+.default {
+
+}
+
+.finalized {
+  background-color: #005a00;
+}
+
+.footer-text ion-title {
+  font-size: 1rem;
+}
+.footer-toolbar {
+  --min-height: 40px;
+}
+
+/*
+ion-row {
+  display: flex;
+  flex-wrap: wrap; 
+}*/
+
+ion-col.card-col {
+  flex: 0 0 calc(100% / var(--top-row-count)); 
+}
+
+ion-card {
+  width: 100%;
+}
+
+div.card-index {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+.gc {
+  width: 45%;
+}
+
+
+.gc ion-button {
+  width: 50%;
+}
+
+
+
+.pin-button {
+  float: right;
+}
+
+.insertionsort-dot {
+  float: left;
+  color: #ff0000;
+}
