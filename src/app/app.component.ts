@@ -28,7 +28,7 @@ export class AppComponent {
   public selectedWorkshopMode = this.sharedService.workshopModes[0].id;
 
 
-  private baseUrl = 'https://cardgame.oida.synology.me';
+  private baseUrl = 'https://cardgameserver1.azurewebsites.net';
   
   constructor(private sharedService: SharedService, private http: HttpClient, private alertController: AlertController) {
     addIcons(ionIcons);

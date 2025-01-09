@@ -54,7 +54,7 @@ export class HomePage implements OnInit {
   private disableFlipping: boolean = false;
 
   private playerName: string = '';
-  private baseUrl = 'https://cardgame.oida.synology.me';
+  private baseUrl = 'https://cardgameserver1.azurewebsites.net';
 
   ngOnInit() {
     this.subscribeToSharedService();
